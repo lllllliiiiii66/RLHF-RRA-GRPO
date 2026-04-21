@@ -31,6 +31,8 @@ def reward_func(queries, prompts, labels):
     exacts = []
     format_scores = []
     lengths = []
+    boxed_hits = []
+    pred_lens = []
 
     for query, prompt, label in zip(queries, prompts, labels):
         completion = query[len(prompt):] if isinstance(prompt, str) and query.startswith(prompt) else query
@@ -38,7 +40,8 @@ def reward_func(queries, prompts, labels):
         gold = extract_answer(label)
 
         exact = 1.0 if pred != "" and pred == gold else 0.0
-        format_score = 1.0 if "\\boxed{" in completion else 0.0
+        boxed_hit = 1.0 if "\\boxed{" in completion else 0.0
+        format_score = boxed_hit
         length = float(len(completion))
 
         completions.append(completion)
@@ -47,6 +50,8 @@ def reward_func(queries, prompts, labels):
         exacts.append(exact)
         format_scores.append(format_score)
         lengths.append(length)
+        boxed_hits.append(boxed_hit)
+        pred_lens.append(float(len(pred)))
 
     # Group by prompt so we can compute per-prompt anchors.
     groups = defaultdict(list)
@@ -91,6 +96,8 @@ def reward_func(queries, prompts, labels):
         "extra_logs": {
             "exact_match": torch.tensor(exacts, dtype=torch.float32),
             "format_score": torch.tensor(format_scores, dtype=torch.float32),
+            "boxed_hit": torch.tensor(boxed_hits, dtype=torch.float32),
+            "pred_len": torch.tensor(pred_lens, dtype=torch.float32),
             "response_char_len": torch.tensor(lengths, dtype=torch.float32),
             "anchor_ref_len": torch.tensor(anchor_refs, dtype=torch.float32),
             "length_penalty": torch.tensor(length_penalties, dtype=torch.float32),
