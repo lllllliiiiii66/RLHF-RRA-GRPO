@@ -1,0 +1,23 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local editor / OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Experiment outputs and large model artifacts
+outputs/**
+!outputs/
+!outputs/reward_debug.txt
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Local environment files
+.env
+.venv/
+venv/

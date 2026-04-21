@@ -1,0 +1,8 @@
+{"prompt":"User: Output only the final answer in the format \\boxed{answer}. No explanation.\nProblem: 2 + 3\nAssistant:","answer":"5"}
+{"prompt":"User: Output only the final answer in the format \\boxed{answer}. No explanation.\nProblem: 5 * 6\nAssistant:","answer":"30"}
+{"prompt":"User: Output only the final answer in the format \\boxed{answer}. No explanation.\nProblem: 14 - 7\nAssistant:","answer":"7"}
+{"prompt":"User: Output only the final answer in the format \\boxed{answer}. No explanation.\nProblem: 21 / 3\nAssistant:","answer":"7"}
+{"prompt":"User: Output only the final answer in the format \\boxed{answer}. No explanation.\nProblem: 9 + 8\nAssistant:","answer":"17"}
+{"prompt":"User: Output only the final answer in the format \\boxed{answer}. No explanation.\nProblem: 12 * 2\nAssistant:","answer":"24"}
+{"prompt":"User: Output only the final answer in the format \\boxed{answer}. No explanation.\nProblem: 16 - 9\nAssistant:","answer":"7"}
+{"prompt":"User: Output only the final answer in the format \\boxed{answer}. No explanation.\nProblem: 18 / 2\nAssistant:","answer":"9"}
